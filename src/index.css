@@ -55,7 +55,7 @@ header button {
   border-radius: 0.3rem;
   padding: 1.2rem 3rem;
   width: 25rem;
-  box-shadow: 0 0.2rem 0.3rem 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 0.2rem 0.4rem 0 rgb(0 0 0 / 10%);
 }
 
 .search-icon {
@@ -86,7 +86,7 @@ header button {
   justify-items: center;
   background: white;
   gap: 3rem;
-  box-shadow: 0 0.2rem 0.3rem 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 0.2rem 0.4rem 0 rgb(0 0 0 / 10%);
   text-decoration: none;
   border-radius: 0.3rem;
 }
@@ -202,6 +202,8 @@ header button {
 
 .content-details img {
   max-width: 100%;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: .5rem;
 }
 
 .info-country {
@@ -219,8 +221,8 @@ header button {
 }
 
 .border-countries-list {
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
+  flex-flow: wrap;
   gap: 1rem;
   margin: 0 1rem;
   align-items: center;
@@ -229,13 +231,33 @@ header button {
 
 .border-country {
   background: white;
-  box-shadow: 0 0 0.6rem 0 rgba(0, 0, 0, 0.2);
-  padding: 0.2rem 1rem;
+  box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: .2rem;
+  padding: 0.3rem 1rem;
   font-size: .7rem;
   cursor: pointer;
 }
 
 /* Media Queries */
+
+@media only screen and (max-width: 600px) {
+  .details {
+    padding: 1.5rem;
+  }
+
+  .stats-country {
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .border-countries {
+    flex-direction: column;
+  }
+
+  .border-countries-list {
+    margin: 1rem 0 0 0;
+  }
+}
 
 @media only screen and (max-width: 765px) {
   header {
@@ -262,5 +284,11 @@ header button {
 
   .select {
     gap: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .content-details {
+    grid-template-columns: 1fr;
   }
 }

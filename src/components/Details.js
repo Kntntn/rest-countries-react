@@ -30,25 +30,25 @@ const Details = ({ back, allCountries, countryClicked }) => {
           <div className="stats-country">
 
             <div>
-              <p>Native Name: {currentCountry.nativeName}</p>
-              <p>Population: {currentCountry.population}</p>
-              <p>Region: {currentCountry.region}</p>
-              <p>Sub Region: {currentCountry.subregion}</p>
-              <p>Capital: {currentCountry.capital}</p>
+              <p><b>Native Name:</b> {currentCountry.nativeName}</p>
+              <p><b>Population:</b> {currentCountry.population}</p>
+              <p><b>Region:</b> {currentCountry.region}</p>
+              <p><b>Sub Region:</b> {currentCountry.subregion}</p>
+              <p><b>Capital:</b> {currentCountry.capital}</p>
             </div>
 
             <div>
-              <p>Top Level Domain: {currentCountry.topLevelDomain}</p>
+              <p><b>Top Level Domain:</b> {currentCountry.topLevelDomain}</p>
               {currentCountry.currencies.map((currency) => (
-                <p>Currencies: {currency.name}</p>
+                <p><b>Currencies:</b> {currency.name}</p>
               ))}
-              <p>Languages: {getDataListed("languages")}</p>
+              <p><b>Languages:</b> {getDataListed("languages")}</p>
             </div>
 
           </div>
 
           <div className="border-countries">
-            <p>Border Countries:</p>
+            <p><b>Border Countries:</b></p>
             <div className="border-countries-list">
               {currentCountry.borders.map((borderCountry) => (
                 <p className="border-country">{getBorderCountryName(borderCountry)}</p>
