@@ -11,11 +11,11 @@ const Details = ({ back, allCountries, countryClicked }) => {
   };
 
   const getBorderCountryName = (code) => {
-    const matchingCountry = allCountries.find(country => {
+    const matchingCountry = allCountries.find((country) => {
       return country.alpha3Code === code;
-    })
+    });
     return matchingCountry.name;
-  }
+  };
 
   return (
     <main className="details">
@@ -28,30 +28,59 @@ const Details = ({ back, allCountries, countryClicked }) => {
           <h1>{currentCountry.name}</h1>
 
           <div className="stats-country">
-
             <div>
-              <p><b>Native Name:</b> {currentCountry.nativeName}</p>
-              <p><b>Population:</b> {currentCountry.population}</p>
-              <p><b>Region:</b> {currentCountry.region}</p>
-              <p><b>Sub Region:</b> {currentCountry.subregion}</p>
-              <p><b>Capital:</b> {currentCountry.capital}</p>
+              <p>
+                <b>Native Name:</b> {currentCountry.nativeName}
+              </p>
+              <p>
+                <b>Population:</b> {currentCountry.population}
+              </p>
+              <p>
+                <b>Region:</b> {currentCountry.region}
+              </p>
+              <p>
+                <b>Sub Region:</b> {currentCountry.subregion}
+              </p>
+              <p>
+                <b>Capital:</b> {currentCountry.capital}
+              </p>
             </div>
 
             <div>
-              <p><b>Top Level Domain:</b> {currentCountry.topLevelDomain}</p>
+              <p>
+                <b>Top Level Domain:</b> {currentCountry.topLevelDomain}
+              </p>
               {currentCountry.currencies.map((currency) => (
-                <p><b>Currencies:</b> {currency.name}</p>
+                <p>
+                  <b>Currencies:</b> {currency.name}
+                </p>
               ))}
-              <p><b>Languages:</b> {getDataListed("languages")}</p>
+              <p>
+                <b>Languages:</b> {getDataListed("languages")}
+              </p>
             </div>
-
           </div>
 
           <div className="border-countries">
-            <p><b>Border Countries:</b></p>
+            <p>
+              <b>Border Countries:</b>
+            </p>
             <div className="border-countries-list">
               {currentCountry.borders.map((borderCountry) => (
-                <p className="border-country">{getBorderCountryName(borderCountry)}</p>
+                <button
+                  onClick={() =>
+                    setCurrentCountry(
+                      allCountries.filter(
+                        (singleCountry) =>
+                          singleCountry.name ===
+                          getBorderCountryName(borderCountry)
+                      )[0]
+                    )
+                  }
+                  className="border-country"
+                >
+                  {getBorderCountryName(borderCountry)}
+                </button>
               ))}
             </div>
           </div>

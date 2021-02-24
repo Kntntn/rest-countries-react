@@ -14,7 +14,7 @@ function App() {
 
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
-    console.log(theme)
+    console.log(theme);
   };
 
   const search = (name) => {
@@ -31,9 +31,17 @@ function App() {
 
   const selectOption = (e) => {
     const region = e.target.getAttribute("value");
-    setItems(
-      allCountries.filter((singleCountry) => singleCountry.region === region)
-    );
+    const select = document.getElementById("select");
+
+    if (region === "All") {
+      setItems(allCountries);
+      select.innerHTML = "Filter by Region";
+    } else {
+      setItems(
+        allCountries.filter((singleCountry) => singleCountry.region === region)
+      );
+      select.innerHTML = region;
+    }
   };
 
   useEffect(() => {
